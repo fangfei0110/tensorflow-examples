@@ -1,8 +1,8 @@
 # Tensorflow Examples
 ##################
-***Models***
+## Models
 * Logistic Regression
 
-***Dependencies***
+## Dependencies
 * TensorFlow
 * Numpy
