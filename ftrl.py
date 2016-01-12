@@ -9,7 +9,7 @@ def predict_accuracy(y, y_):
 # Generate Samples
 size = 40000
 x_data = np.array((np.random.normal(0.8,0.2,size).astype("float32"), np.random.normal(0.5,0.5,size).astype("float32"), np.random.normal(0,0.5,size).astype("float32"))).T
-# set the third dimension feature as "unimportant" feature to check if FTRL will sparse this feature's weight
+# set the third dimension feature as "unimportant" feature to check if FTRL will "eliminate" this feature's weight
 w = np.array([[0.5, -0.6, 0.01]])
 y_data = (1 / ( 1 + np.e ** -(x_data.dot(w.T) + 0.05)) > 0.5).astype(np.float32)
 dimension = x_data.shape[1]
