@@ -29,10 +29,10 @@ y = tf.clip_by_value(y, 1e-10, 1-1e-10)
 # Define L1 or L2 regulization
 regulization = tf.reduce_sum(tf.abs(W))
 l2_regulization = tf.reduce_sum(tf.square(W))
-lambda_ = 0.02
+lambda_ = 0.002
 
 # Minimize the negative log likelihood.
-loss = (-tf.matmul(tf.transpose(y_), tf.log(y)) - tf.matmul(tf.transpose(1-y_), tf.log(1-y)) + lambda_ * l2_regulization) / size
+loss = (-tf.matmul(tf.transpose(y_), tf.log(y)) - tf.matmul(tf.transpose(1-y_), tf.log(1-y))) / size + lambda_ * l2_regulization
 learning_rate = tf.train.exponential_decay(0.002, 40000, 4000, 0.96, staircase=True)
 optimizer = tf.train.GradientDescentOptimizer(learning_rate)
 train = optimizer.minimize(loss)
